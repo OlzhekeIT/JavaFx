@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kaspifx.HelloController">
+
+    <!-- Жоғарғы Kaspi header -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="header">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Kaspi Market" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <!-- Сол жақ панель: категориялар -->
+    <left>
+        <VBox spacing="10" styleClass="left-panel">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Категориялар" styleClass="section-title"/>
+            <ListView fx:id="categoryList" prefWidth="160"/>
+        </VBox>
+    </left>
+
+    <!-- Ортада: тауарлар тізімі -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Тауарлар" styleClass="section-title"/>
+            <ListView fx:id="productList"/>
+        </VBox>
+    </center>
+
+    <!-- Оң жақ: таңдалған тауардың сипаттамасы + корзина -->
+    <right>
+        <VBox spacing="8" styleClass="right-panel">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Тауар сипаттамасы" styleClass="section-title"/>
+
+            <Label text="Атауы:"/>
+            <Label fx:id="nameLabel" wrapText="true"/>
+
+            <Label text="Бағасы:"/>
+            <Label fx:id="priceLabel"/>
+
+            <Label text="Характеристика:"/>
+            <Label fx:id="specsLabel" wrapText="true"/>
+
+            <Label text="Сипаттама:"/>
+            <TextArea fx:id="descriptionArea"
+                      prefRowCount="4"
+                      editable="false"
+                      wrapText="true"/>
+
+            <Button fx:id="addToCartButton"
+                    text="Корзинаға қосу"
+                    maxWidth="Infinity"
+                    onAction="#onAddToCart"/>
+
+            <Separator/>
+
+            <Label fx:id="cartTotalLabel"
+                   text="Корзина: 0 ₸"
+                   styleClass="cart-total"/>
+
+        </VBox>
+    </right>
+
+</BorderPane>
